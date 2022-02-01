@@ -1,0 +1,12 @@
+@app.route('/{cls_name}', methods=['GET'])
+def get_all_{cls_name}():
+    {cls_name}_arr = {cls}.query.all()
+    output = []
+    for {cls_name} in {cls_name}_arr:
+        output.append({{
+            'id': {cls_name}.id,
+            {args}
+        }})
+    return jsonify({{'{cls_name}_arr': output}}), 200
+
+

@@ -1,0 +1,6 @@
+@app.route('/{cls_name}/<id>/{field_name}', methods=['GET'])
+def get_{cls_name}_{field_name}(id):
+    {cls_name} = {cls}.query.filter_by(id=id).first()
+    if not {cls_name}:
+        return jsonify({{'message': 'No {cls_name} found.'}}), 404
+    {field_name} = {cls_name}.{field_name}

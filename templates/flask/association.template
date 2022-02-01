@@ -1,0 +1,7 @@
+class {cls_name}(db.Model):
+    __tablename__ = '{left}_{right}'
+    {left}_id = db.Column(db.ForeignKey('{left}.id'), primary_key=True)
+    {right}_id = db.Column(db.ForeignKey('{right}.id'), primary_key=True)
+    extra_data = db.Column(db.String(50))
+    {right} = db.relationship('{right_cls}'{right_back_populates})
+    {left} = db.relationship('{left_cls}'{left_back_populates})

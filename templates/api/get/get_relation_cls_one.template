@@ -1,0 +1,5 @@
+    {cls_name}_data = {{
+        'id': {field_name}.id,
+        {related_args}
+    }}
+    return jsonify({{'{cls_name}': {cls_name}_data}}), 200

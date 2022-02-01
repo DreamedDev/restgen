@@ -1,0 +1,9 @@
+@app.route('/{cls_name}', methods=['POST'])
+def post_{cls_name}():
+    {cls_name} = request.get_json()
+    {cls_name}_cls = {cls}({args})
+    db.session.add({cls_name}_cls)
+    db.session.commit()
+    return jsonify({{'message': '{cls_name} posted successfully.'}}), 201
+
+

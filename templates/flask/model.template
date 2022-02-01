@@ -1,0 +1,10 @@
+from config import db
+
+
+# Model classes:
+class {cls_name}(db.Model):
+    __tablename__ = '{cls_table_name}'
+    id = db.Column(db.Integer, primary_key=True)
+    {field_name} = db.Column(db.{field_type})
+    {cls_field_name} = db.relationship('{dest_cls}'{back_populates}{use_list})
+    {src_cls_name}_id = db.Column(db.Integer, db.ForeignKey('{src_cls_name}.id'))

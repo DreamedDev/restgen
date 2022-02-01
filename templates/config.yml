@@ -1,0 +1,30 @@
+# Auto generated restgen config.yml file. Complete /.../ sections
+# Available KEY_TYPE values below.
+# If you want to use default value for any section leave it empty.
+# For example for /class_type_arg/ key you can define value /class_name/:::/CASCADE_TYPE/ for default /RELATION_TYPE/ and /BACKREF_TYPE/:
+# Ending colons can be skipped. For example: for db key you can shorten value /DB_TYPE/:/database/::::: to /DB_TYPE/:/database/
+# For section __privileges__ default 'default' value for each generated endpoint is public. You can delete this all section if nothing to change.
+# Check documentation for more info.
+
+# Available KEY_TYPE values (case-insensitive except PRIMITIVE_TYPE):
+# CONFIG_TYPE: YAML | YAML_SHORT
+# DB_TYPE: SQLITE | MYSQL | POSTGRES | MSSQL
+# DB_CREATE_TYPE: DB_CREATE_ON | DB_CREATE_OFF
+# PRIMITIVE_TYPE: BigInteger | Boolean | Date | DateTime | Enum | Float | Integer | Interval | LargeBinary | MatchType | Numeric | PickleType | SchemaType | SmallInteger | String | Text | Unicode | UnicodeText
+# RELATION_TYPE: ONE_TO_MANY | MANY_TO_ONE | ONE_TO_ONE | MANY_TO_MANY
+# CASCADE_TYPE: CASCADE | CASCADE_DELETE | CASCADE_UPDATE | CASCADE_OFF
+# PRIVILEGE_TYPE: DELETE | OFF | PUBLIC | your own privilege type (admin etc.)
+
+# Default values:
+# db: /DB_TYPE required/:/database required/:default user:password required if not sqlite:localhost:default port:CREATE_OFF
+# /class_type_arg/: /class_name required/:RELATION_TYPE required:BACKREF_OFF:CASCADE_OFF
+# __privileges__: public:DEFAULT_PRIVILEGE_TYPE:DEFAULT_PRIVILEGE_TYPE:DEFAULT_PRIVILEGE_TYPE:DEFAULT_PRIVILEGE_TYPE
+
+config: /CONIF_TYPE/
+db: /DB_TYPE/:/database/:/user/:/password/:/host/:/port/:/DB_CREATE_TYPE/
+model:
+  /ClassName/:
+    /primiteive_arg/: /PRIMITIVE_TYPE/
+    /class_type_arg/: /class_name/:/RELATION_TYPE/:BACK_POPULATES/:/CASCADE_TYPE/
+    __privileges__: DEFAULT_PRIVILEGE_TYPE:GET_PRIVILEGE_TYPE:POST_PRIVILEGE_TYPE:PUT_PRIVILEGE_TYPE:DELETE_PRIVILEGE_TYPE
+  /.../

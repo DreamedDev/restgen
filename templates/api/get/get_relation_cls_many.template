@@ -1,0 +1,7 @@
+    output = []
+    for {related_cls_name} in {field_name}:
+        output.append({{
+            'id': {related_cls_name}.id,
+            {related_args}
+        }})
+    return jsonify({{'{cls_name}_arr': output}}), 200

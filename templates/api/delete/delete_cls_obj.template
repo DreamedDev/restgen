@@ -1,0 +1,10 @@
+@app.route('/{cls_name}/<id>', methods=['DELETE'])
+def delete_{cls_name}(id):
+    {cls_name} = {cls}.query.filter_by(id=id).first()
+    if not {cls_name}:
+        return jsonify({{'message': 'No {cls_name} found.'}}), 404
+    db.session.delete({cls_name})
+    db.session.commit()
+    return jsonify({{'message': 'The {cls_name} has been deleted.'}}), 201
+
+

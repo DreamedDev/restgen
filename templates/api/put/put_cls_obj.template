@@ -1,0 +1,11 @@
+@app.route('/{cls_name}/<id>', methods=['PUT'])
+def put_{cls_name}(id):
+    {cls_name} = {cls}.query.filter_by(id=id).first()
+    if not {cls_name}:
+        return jsonify({{'message': 'No {cls_name} found.'}}), 404
+    {cls_name}_cls = {cls}({args})
+    db.session.update({cls_name}_cls)
+    db.session.commit()
+    return jsonify({{'message': '{cls_name} put successfully.'}}), 201
+
+
