@@ -22,11 +22,6 @@ def generate_model_generator_file(project_name, config):
 
 
 def generate(project_name, config):
-    create_db_file_str = ''
-    security_file_str = ''
-    requirements_file_str = ''
-    run_script_file_str = ''
-
     # config.py generation:
     generate_config_file(project_name, config)
     # main.py generation:
