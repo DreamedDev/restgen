@@ -1,13 +1,13 @@
 import yaml
 import shutil
 import os
-from core import generation, running
-from core.yarn_config_decoder import decode_yarn_config
+from engine.core import generation
+from engine.core.yarn_config_decoder import decode_yarn_config
 
 
 def create(project_name):
     os.mkdir(project_name)
-    shutil.copy('templates/config.yml', f'{project_name}/config.yml')
+    shutil.copy('engine/templates/config.yml', f'{project_name}/config.yml')
 
 
 def override(project_name, override_method, acceptance_skip=False):
@@ -46,7 +46,3 @@ def core_generate(project_name):
         shutil.copy('.tmp/config.yml', f'{project_name}/.version.yml')
         shutil.copy('.tmp/config.yml', f'{project_name}/config.yml')
     generation.generate(project_name, get_config(project_name))
-
-
-def core_run(project_name):
-    running.run(get_config(project_name))

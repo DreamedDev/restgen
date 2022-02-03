@@ -1,4 +1,4 @@
-db: sqlite:example
+db: sqlite:car_showroom.db
 model:
   Car:
     brand: String
@@ -7,4 +7,5 @@ model:
     color: String
   CarShowroom:
     name: String
-    cars: Car
+    address: String
+    cars: Car:one_to_many:car_showroom

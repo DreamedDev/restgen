@@ -13,18 +13,15 @@
 # PRIMITIVE_TYPE: BigInteger | Boolean | Date | DateTime | Enum | Float | Integer | Interval | LargeBinary | MatchType | Numeric | PickleType | SchemaType | SmallInteger | String | Text | Unicode | UnicodeText
 # RELATION_TYPE: ONE_TO_MANY | MANY_TO_ONE | ONE_TO_ONE | MANY_TO_MANY
 # CASCADE_TYPE: CASCADE | CASCADE_DELETE | CASCADE_UPDATE | CASCADE_OFF
-# PRIVILEGE_TYPE: DELETE | OFF | PUBLIC | your own privilege type (admin etc.)
 
 # Default values:
 # db: /DB_TYPE required/:/database required/:default user:password required if not sqlite:localhost:default port:CREATE_OFF
-# /class_type_arg/: /class_name required/:RELATION_TYPE required:BACKREF_OFF:CASCADE_OFF
-# __privileges__: public:DEFAULT_PRIVILEGE_TYPE:DEFAULT_PRIVILEGE_TYPE:DEFAULT_PRIVILEGE_TYPE:DEFAULT_PRIVILEGE_TYPE
+# /class_type_arg/: /class_name required/:/:RELATION_TYPE required:/relation name required/:back_populates name required:CASCADE_OFF
 
 config: /CONIF_TYPE/
 db: /DB_TYPE/:/database/:/user/:/password/:/host/:/port/:/DB_CREATE_TYPE/
 model:
   /ClassName/:
     /primiteive_arg/: /PRIMITIVE_TYPE/
-    /class_type_arg/: /class_name/:/RELATION_TYPE/:BACK_POPULATES/:/CASCADE_TYPE/
-    __privileges__: DEFAULT_PRIVILEGE_TYPE:GET_PRIVILEGE_TYPE:POST_PRIVILEGE_TYPE:PUT_PRIVILEGE_TYPE:DELETE_PRIVILEGE_TYPE
+    /class_type_arg/: /class_name/:/RELATION_TYPE/:back_populates name/:/CASCADE_TYPE/
   /.../

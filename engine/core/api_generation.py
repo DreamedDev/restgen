@@ -3,14 +3,14 @@ def args_to_string(cls, http_method):
     for field_name, field_type in cls.attributes.items():
         if type(field_type) == str and field_name != 'id':
             if http_method == 'GET':
-                args += f'\'{field_name}\': {cls.name.lower()}.{field_name},\n'
+                args += f'\'{field_name}\': {cls.name.lower()}.{field_name}, '
             elif http_method == 'POST' or http_method == 'PUT':
-                args += f'{field_name}={cls.name.lower()}[\'{field_name}\'],\n'
+                args += f'{field_name}={cls.name.lower()}[\'{field_name}\'], '
     return args
 
 
 def basic_api_update(project_name, api_template, cls, args):
-    with open(f'templates/api/{api_template}', 'r') as basic_api_template:
+    with open(f'engine/templates/api/{api_template}', 'r') as basic_api_template:
         endpoint_str = basic_api_template.read().format(
             cls_name=cls.name.lower(),
             cls=cls.name,
@@ -25,14 +25,14 @@ def relationship_args_to_string(cls, http_method, field):
     for field_name, field_type in cls.attributes.items():
         if type(field_type) == str and field_name != 'id':
             if http_method == 'GET':
-                args += f'\'{field_name}\': {cls.name.lower()}.{field_name},\n'
+                args += f'\'{field_name}\': {cls.name.lower()}.{field_name}, '
             elif http_method == 'POST' or http_method == 'PUT':
-                args += f'{field_name}={cls.name.lower()}[\'{field_name}\'],\n'
+                args += f'{field_name}={cls.name.lower()}[\'{field_name}\'], '
     return args
 
 
 def relationship_api_update(project_name, api_template, cls, field_name, related_args, related_cls):
-    with open(f'templates/api/{api_template}', 'r') as basic_api_template:
+    with open(f'engine/templates/api/{api_template}', 'r') as basic_api_template:
         endpoint_str = basic_api_template.read().format(
             cls_name=cls.name.lower(),
             cls=cls.name,
@@ -93,7 +93,7 @@ def get_cls_by_name(cls_name, config):
 
 def generate_api(project_name, config):
     with open(f'{project_name}/api.py', 'w+') as api:
-        with open('templates/api/api_imports.template', 'r') as api_imports_template:
+        with open('engine/templates/api/api_imports.template', 'r') as api_imports_template:
             api.write(api_imports_template.read())
     for cls in config.model.classes:
         create_cls_endpoints(project_name, cls)

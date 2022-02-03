@@ -1,7 +1,0 @@
-db: sqlite:example
-model:
-  Child:
-    name: String
-  Parent:
-    name: String
-    children: Child:many_to_one:parent

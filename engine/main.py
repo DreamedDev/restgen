@@ -1,7 +1,7 @@
 import argparse
 import os
 import filecmp
-from core.management import create, override, get_config, core_generate, core_run
+from engine.core.management import create, override, get_config, core_generate
 
 
 def init(project_name):
@@ -26,14 +26,9 @@ def generate(project_name):
             override(project_name, core_generate)
 
 
-def run(project_name):
-    generate(project_name)
-    core_run(project_name)
-
-
 def main():
     parser = argparse.ArgumentParser(description='Restgen: zero coding REST API')
-    parser.add_argument('opt', choices=['init', 'generate', 'run'],
+    parser.add_argument('opt', choices=['init', 'generate'],
                         help='Init config.yml file, complete it and run or just generate REST API')
     parser.add_argument('name', help='Project name')
     args = parser.parse_args()

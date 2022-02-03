@@ -1,0 +1,16 @@
+db: sqlite:example
+model:
+  Professor:
+    name: String
+    degree: String
+    room: Integer
+  Student:
+    name: String
+    study_year: Integer
+  Subject:
+    name: String
+    professor: Professor:many_to_one:subjects
+    student: Student:many_to_one:subjects
+  Exam:
+    date: Date
+    subject: Subject:many_to_one:exams

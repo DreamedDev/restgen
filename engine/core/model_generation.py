@@ -1,6 +1,6 @@
 def get_model_lines():
     # Read model template
-    with open('templates/flask/model.template', 'r') as flask_model_template:
+    with open('engine/templates/flask/model.template', 'r') as flask_model_template:
         flask_model_lines = flask_model_template.readlines()
         return flask_model_lines
 
@@ -66,11 +66,11 @@ def add_not_many_to_many_arg(cls, field_name, field_type, flask_model_lines, mod
 
 def get_association_table_str(cls, field_name, field_type):
     # Read association table template
-    with open('templates/flask/association.template', 'r') as association_template:
+    with open('engine/templates/flask/association.template', 'r') as association_template:
         association_table_lines = association_template.readlines()
         # Define back_populates.
-        left_back_populates_str = f', back_populates=\'{field_type.back_populates}\'' if field_type.back_populates != '' else ''
-        right_back_populates_str = f', back_populates=\'{field_name}\'' if field_type.back_populates != '' else ''
+        left_back_populates_str = f', back_populates=\'{field_name}\'' if field_type.back_populates != '' else ''
+        right_back_populates_str = f', back_populates=\'{field_type.back_populates}\'' if field_type.back_populates != '' else ''
         # Make association table
         association_table_str = ''.join(association_table_lines[:6]).format(
             cls_name=f'{cls.name}_{field_type.class_name}',
@@ -111,7 +111,7 @@ def add_many_to_many_arg(cls, field_name, field_type, model_file_str):
 
 def generate_model_file(project_name, config):
     # Read model template and join imports
-    with open('templates/flask/model.template', 'r') as flask_model_template:
+    with open('engine/templates/flask/model.template', 'r') as flask_model_template:
         flask_model_lines = flask_model_template.readlines()
         model_file_str = ''.join(flask_model_lines[0:4])
         # Create model classes
